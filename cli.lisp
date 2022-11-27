@@ -296,4 +296,5 @@
 
 
 (defun toplevel-main ()
-  (main (uiop:command-line-arguments)))
+  (main (uiop:command-line-arguments))
+  (uiop:quit))
