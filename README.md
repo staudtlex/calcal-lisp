@@ -14,7 +14,7 @@ The Lisp source code is available at https://www.cs.tau.ac.il/~nachum/calendar-b
 Please note: The generated binary is quite large (10-40 MB, depending on the Lisp implementation). This is due to the fact that the binary consists of the image of the Lisp session in which _calcal_ was compiled as well as the Common Lisp runtime. Other Lisp implementations may provide means to reduce the binary size.
 
 ## Prequisites
-Building _calcal_ requires `make`, `patch`, and a Common Lisp implementation (tested with [SBCL](https://www.sbcl.org/)). 
+Building _calcal_ requires `make`, `patch`, and a Common Lisp implementation (tested with [SBCL](https://www.sbcl.org/), [Clozure CL](https://ccl.clozure.com/), and [CLISP](https://www.gnu.org/software/clisp/)). 
 
 ## Build and install
 To build, clone this repository, and run `make`.
@@ -22,7 +22,12 @@ To build, clone this repository, and run `make`.
 ```sh
 git clone github.com/staudtlex/calcal-lisp 
 cd calcal-lisp
+# with SBCL (default)
 make
+# with Clozure CL
+make LISP=ccl64
+# with CLISP
+make LISP=clisp
 ```
 
 In order for the command line (e.g. `bash`) to be able find _calcal_, move it somewhere on `$PATH`, or modify `$PATH`.
@@ -52,27 +57,27 @@ French Revolutionary    23 Nivôse an 230
 Old Hindu Solar         28 Dhanus 5122                  
 Old Hindu Lunar         10 Pausha 5122        
 ```
-Run `calcal -h` to show all available options.
+Run `calcal --help` to show all available options (for binaries built with _CLISP_, you may need to run `calcal -- --help` instead).
 ```
-$ calcal -h
-Usage of calcal:
-  -c string
-        comma-separated list of calendars. Currently, calcal supports
-        all             all calendars listed below (default)
-        gregorian       Gregorian calendar
-        iso             ISO calendar
-        julian          Julian calendar
-        islamic         Islamic calendar
-        hebrew          Hebrew calendar
-        mayanLongCount  Mayan Long Count calendar
-        mayanHaab       Mayan Haab calendar
-        mayanTzolkin    Mayan Tzolkin calendar
-        french          French Revolutionary calendar
-        oldHinduSolar   Old Hindu Solar calendar
-        oldHinduLunar   Old Hindu Lunar calendar
-  -d string
-        date (format: yyyy-mm-dd). When omitted, '-d' defaults to the
-        current date (2022-01-12)
+$ calcal --help
+Usage: calcal [options]
+Options:
+  --calendar  comma-separated list of calendars.
+              Currently, calcal supports:
+                all             all calendars listed below (default)
+                gregorian       Gregorian calendar
+                iso             ISO calendar
+                julian          Julian calendar
+                islamic         Islamic calendar
+                hebrew          Hebrew calendar
+                mayanLongCount  Mayan Long Count calendar
+                mayanHaab       Mayan Haab calendar
+                mayanTzolkin    Mayan Tzolkin calendar
+                french          French Revolutionary calendar
+                oldHinduSolar   Old Hindu Solar calendar
+                oldHinduLunar   Old Hindu Lunar calendar
+  --date      date (format: yyyy-mm-dd). When omitted, '--date'
+              defaults to the current date (2022-01-12)
 ```
 
 ## Limitations
