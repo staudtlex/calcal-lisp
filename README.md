@@ -34,7 +34,8 @@ In order for the command line (e.g. `bash`) to be able find _calcal_, move it so
 
 ## Usage
 To compute the dates corresponding to the current date (e.g. 2022-01-12), simply run `calcal` on the command line.
-```
+
+```text
 $ calcal
 Please note:
 - for dates before 1 January 1 (Gregorian), calcal may return incorrect
@@ -57,8 +58,10 @@ French Revolutionary    23 Nivôse an 230
 Old Hindu Solar         28 Dhanus 5122                  
 Old Hindu Lunar         10 Pausha 5122        
 ```
+
 Run `calcal --help` to show all available options (for binaries built with _CLISP_, you may need to run `calcal -- --help` instead).
-```
+
+```text
 $ calcal --help
 Usage: calcal [options]
 Options:
